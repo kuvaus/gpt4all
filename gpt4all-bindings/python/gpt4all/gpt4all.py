@@ -4,6 +4,7 @@ Python only API for running all GPT4All models.
 import json
 import os
 from pathlib import Path
+import time
 from typing import Dict, List
 
 import requests
@@ -148,6 +149,8 @@ class GPT4All():
             raise RuntimeError(
                 "An error occurred during download. Downloaded file may not work."
             )
+        # Sleep for a little bit so OS can remove file lock
+        time.sleep(2)
 
         print("Model downloaded at: " + download_path)
         return download_path
@@ -181,7 +184,7 @@ class GPT4All():
                 with value of "system", "assistant", or "user" and a "content" key with a
                 string value. Messages are organized such that "system" messages are at top of prompt,
                 and "user" and "assistant" messages are displayed in order. Assistant messages get formatted as
-                "Reponse: {content}". 
+                "Response: {content}". 
             default_prompt_header: If True (default), add default prompt header after any system role messages and
                 before user/assistant role messages.
             default_prompt_footer: If True (default), add default footer at end of prompt.

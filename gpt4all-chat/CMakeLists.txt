@@ -14,7 +14,7 @@ endif()
 
 set(APP_VERSION_MAJOR 2)
 set(APP_VERSION_MINOR 4)
-set(APP_VERSION_PATCH 2)
+set(APP_VERSION_PATCH 3)
 set(APP_VERSION "${APP_VERSION_MAJOR}.${APP_VERSION_MINOR}.${APP_VERSION_PATCH}")
 
 # Include the binary directory for the generated header file
@@ -61,6 +61,7 @@ qt_add_executable(chat
     chat.h chat.cpp
     chatllm.h chatllm.cpp
     chatmodel.h chatlistmodel.h chatlistmodel.cpp
+    chatgpt.h chatgpt.cpp
     download.h download.cpp
     network.h network.cpp
     llm.h llm.cpp
